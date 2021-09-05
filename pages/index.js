@@ -1,64 +1,70 @@
-import Head from 'next/head'
-import clientPromise from '../lib/mongodb'
+import Head from 'next/head';
+import Link from 'next/link';
 
-export default function Home({ isConnected }) {
+import mongo_client from '../lib/mongodb';
+
+const mongodb_db = process.env.MONGODB_DB;
+
+export default function Home({ champions }) {
+
+  // Cor para texto: #0070F3
+
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>LoL TFT Info</title>
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js with MongoDB!</a>
-        </h1>
+        <div className='title_div'>
+          <h1 className="title">Welcome to TeamFight Tactics Info</h1>
 
-        {isConnected ? (
+          <img src='favicon.png' height='50px'></img>
+        </div>
+
+        {/* { () ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
         ) : (
           <h2 className="subtitle">
             You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
             for instructions.
           </h2>
-        )}
+        )} */}
 
-        <p className="description">
+        {/* <p className="description">
           Get started by editing <code>pages/index.js</code>
-        </p>
+        </p> */}
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          {
+            champions.map( champ => {
+              const champ_nick = champ.name
+                .replace( /\&[ \w]+/g, '' )
+                .toLowerCase()
+                .replace( /[ .']/g, '' );
+              const icon_path = `/champ_icons/${ champ_nick }.png`;
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+              return (
+                <Link href={ `/champion/${ champ_nick }` } key={ champ.nick }>
+                  <a className="card" key={ champ.nick }>
+                    <img
+                      alt={ `${ champ.name } (TFT)` }
+                      src={ icon_path }
+                      height='90px'
+                      width='90px'
+                    ></img>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+                    <span>{ champ.name }</span>
+                  </a>
+                </Link>
+              );
+            })
+          }
         </div>
       </main>
 
-      <footer>
+      {/* <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -67,7 +73,7 @@ export default function Home({ isConnected }) {
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
-      </footer>
+      </footer> */}
 
       <style jsx>{`
         .container {
@@ -77,6 +83,7 @@ export default function Home({ isConnected }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-image: linear-gradient(to bottom right, #0B2D36, #004455);
         }
 
         main {
@@ -86,6 +93,16 @@ export default function Home({ isConnected }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .title_div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        
+        .title_div img {
+          margin: 25px;
         }
 
         footer {
@@ -126,7 +143,8 @@ export default function Home({ isConnected }) {
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 2.5rem;
+          color: white;
         }
 
         .title,
@@ -153,22 +171,24 @@ export default function Home({ isConnected }) {
         }
 
         .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat( 6, 1fr );
+          gap: 2px;
 
           max-width: 800px;
-          margin-top: 3rem;
         }
 
         .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          color: white;
+          margin: .2rem;
+          padding: .5rem;
           text-decoration: none;
+
+          
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
@@ -179,17 +199,6 @@ export default function Home({ isConnected }) {
         .card:active {
           color: #0070f3;
           border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
         }
 
         .logo {
@@ -222,18 +231,14 @@ export default function Home({ isConnected }) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const client = await clientPromise
-
-  // client.db() will be the default database passed in the MONGODB_URI
-  // You can change the database by calling the client.db() function and specifying a database like:
-  // const db = client.db("myDatabase");
-  // Then you can execute queries against your database like so:
-  // db.find({}) or any of the MongoDB Node Driver commands
-
-  const isConnected = await client.isConnected()
+export async function getServerSideProps ( context ) {
+  const client = await mongo_client;
+  const db = client.db( mongodb_db );
+  const champions_collection = db.collection( 'champions' );
+  const champs = await champions_collection.find( {}, { projection: { _id: 0, nick: 0 } } ).toArray();
+  const champions = JSON.parse( JSON.stringify( champs ) );
 
   return {
-    props: { isConnected },
+    props: { champions },
   }
 }
