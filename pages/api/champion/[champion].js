@@ -31,6 +31,7 @@ export default async function Champion ( req, res ) {
   const champion = await champions_collection.findOne({ nick: champ_nick }, {
     projection: { _id: false, nick: false }
   });
+  // console.log( '/api/champion/[champion]:', champion );
   
   return res.json( champion );
 }
