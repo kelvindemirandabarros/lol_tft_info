@@ -46,19 +46,10 @@ export default function Champion ( props ) {
 
               <h1>{ champion.name }</h1>
 
-              {
-                ( champion.passive_ability ) ?
-                (
-                  <div>
-                    <h3>Active Ability</h3>
-                    <span>{ champion.ability }</span>
-                  </div>
-                )
-                :
-                (
-                  <></>
-                )
-              }
+              <div>
+                <h3>Passive Ability</h3>
+                <span>{ champion.passive }</span>
+              </div>
 
               <div>
                 <h3>Active Ability</h3>
@@ -158,6 +149,10 @@ export default function Champion ( props ) {
           justify-content: center;
 
           padding: 5rem 0;
+        }
+
+        .stats {
+          margin-top: 40px;
         }
 
         footer {
@@ -319,11 +314,13 @@ export async function getServerSideProps ( context,  ) {
   const client = await mongo_client;
   const db = client.db( mongodb_db );
   const champions_collection = db.collection( 'champions' );
-  const champion = await champions_collection.findOne({ nick: champ_nick });
-  // console.log( '/champion/[champion]:', champion );
+  const champion = await champions_collection.findOne({ nick: champ_nick }, {
+    projection: { _id: false, nick: false }
+  });
+  console.log( '/champion/[champion]:', champion );
 
-  delete champion._id;
-  delete champion.nick;
+  // delete champion._id;
+  // delete champion.nick;
 
   return {
     props: {
