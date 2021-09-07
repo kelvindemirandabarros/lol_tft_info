@@ -11,33 +11,35 @@ export default function Home({ champions }) {
   return (
     <div className="container">
       <Head>
-        <title>LoL TFT Info</title>
+        <title>TFT Info</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main>
+      <div className='main'>
         <div className='title_div'>
           <h1 className="title">Welcome to TeamFight Tactics Info</h1>
 
+
           <img src='favicon.png' height='50px'></img>
+
+          {/* <span className="title">Welcome to</span>
+          <span className="title">TeamFight Tactics Info</span> */}
         </div>
 
-        {/* { () ? (
-          <h2 className="subtitle">You are connected to MongoDB</h2>
-        ) : (
-          <h2 className="subtitle">
-            You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
-            for instructions.
-          </h2>
-        )} */}
-
-        {/* <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p> */}
+        <h2 className='subtitle'>
+          About the API,&nbsp;
+          <a
+            href=''
+            style={{
+              color: '#00ccff',
+              textDecoration: 'underline'
+            }}
+          >click here</a>
+        </h2>
 
         <div className="grid">
           {
-            champions.map( champ => {
+            champions.map( ( champ, index ) => {
               const champ_nick = champ.name
                 .replace( /\&[ \w]+/g, '' )
                 .toLowerCase()
@@ -45,40 +47,33 @@ export default function Home({ champions }) {
               const icon_path = `/champ_icons/${ champ_nick }.png`;
 
               return (
-                <a
-                  href={ `/champion/${ champ_nick }` }
-                  className="card"
-                  key={ champ.nick }
+                <div 
+                  key={ index + champ_nick }
                 >
-                  <img
-                    alt={ `${ champ.name } (TFT)` }
-                    src={ icon_path }
-                    height='90px'
-                    width='90px'
-                  ></img>
+                  <a
+                    href={ `/champion/${ champ_nick }` }
+                    className="card"
+                  >
+                    <img
+                      alt={ `${ champ.name } (TFT)` }
+                      src={ icon_path }
+                      height='90px'
+                      width='90px'
+                    ></img>
 
-                  <span>{ champ.name }</span>
-                </a>
+                    <span>{ champ.name }</span>
+                  </a>
+                </div>
               );
             })
           }
         </div>
-      </main>
-
-      {/* <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer> */}
+      </div>
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
+          width: 100vw;
+          height: 100vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -87,10 +82,13 @@ export default function Home({ champions }) {
           background-image: linear-gradient(to bottom right, #0B2D36, #004455);
         }
 
-        main {
-          padding: 5rem 0;
-          flex: 1;
+        .main {
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+
           display: flex;
+          flex: 1;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -104,25 +102,6 @@ export default function Home({ champions }) {
         
         .title_div img {
           margin: 25px;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
         }
 
         a {
@@ -146,37 +125,20 @@ export default function Home({ champions }) {
           line-height: 1.15;
           font-size: 2.5rem;
           color: white;
-        }
-
-        .title,
-        .description {
           text-align: center;
         }
 
         .subtitle {
-          font-size: 2rem;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+          margin-top: 10px;
         }
 
         .grid {
+          width: 100%;
+          height: 100%;
+          margin-top: 25px;
           display: grid;
-          grid-template-columns: repeat( 6, 1fr );
           gap: 2px;
-
-          max-width: 800px;
+          grid-template-columns: repeat( auto-fill, minmax( 100px, 150px ) );
         }
 
         .card {
@@ -200,10 +162,6 @@ export default function Home({ champions }) {
         .card:active {
           color: #0070f3;
           border-color: #0070f3;
-        }
-
-        .logo {
-          height: 1em;
         }
 
         @media (max-width: 600px) {

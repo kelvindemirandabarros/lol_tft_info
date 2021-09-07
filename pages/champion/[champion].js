@@ -207,7 +207,7 @@ export async function getServerSideProps ( context,  ) {
   const url = context.req.url;
   const champ_nick = url.replace( '\/champion\/', '' );
 
-  console.log( 'Champ nick:', champ_nick );
+  // console.log( 'Champ nick:', champ_nick );
 
   const schema = yup.object().shape({
     champ_nick: yup.string().required(),
