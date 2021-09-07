@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import * as yup from 'yup';
 
 import mongo_client from '../../lib/mongodb';
@@ -27,9 +26,10 @@ export default function Champion ( props ) {
       </Head>
 
       <div className='backHome'>
-        <Link href='/'>
-          <a style={{ fontSize: '30px' }}>&lt;- HOME</a>
-        </Link>
+        <a
+          href='/'
+          style={{ fontSize: '30px' }}
+        >&lt;- HOME</a>
       </div>
 
       {

@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 
 import mongo_client from '../lib/mongodb';
 
@@ -46,18 +45,20 @@ export default function Home({ champions }) {
               const icon_path = `/champ_icons/${ champ_nick }.png`;
 
               return (
-                <Link href={ `/champion/${ champ_nick }` } key={ champ.nick }>
-                  <a className="card" key={ champ.nick }>
-                    <img
-                      alt={ `${ champ.name } (TFT)` }
-                      src={ icon_path }
-                      height='90px'
-                      width='90px'
-                    ></img>
+                <a
+                  href={ `/champion/${ champ_nick }` }
+                  className="card"
+                  key={ champ.nick }
+                >
+                  <img
+                    alt={ `${ champ.name } (TFT)` }
+                    src={ icon_path }
+                    height='90px'
+                    width='90px'
+                  ></img>
 
-                    <span>{ champ.name }</span>
-                  </a>
-                </Link>
+                  <span>{ champ.name }</span>
+                </a>
               );
             })
           }
