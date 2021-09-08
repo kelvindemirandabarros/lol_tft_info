@@ -5,6 +5,8 @@ import mongo_client from '../../lib/mongodb';
 import { all_champ_list, current_set } from '../../misc/champions_list';
 // import styles from '../../styles/champ_page.module.css';
 
+import BackHome from '../../components/backHome';
+
 const mongodb_db = process.env.MONGODB_DB;
 
 export default function Champion ( props ) {
@@ -21,16 +23,11 @@ export default function Champion ( props ) {
   return (
     <div className='container'>
       <Head>
-        <title>LoL TFT Info - { champion.name }</title>
+        <title>TFT Info - { champion.name }</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <div className='backHome'>
-        <a
-          href='/'
-          style={{ fontSize: '30px' }}
-        >&lt;- HOME</a>
-      </div>
+      <BackHome />
 
       {
         ( errorMsg ) ?
@@ -141,16 +138,7 @@ export default function Champion ( props ) {
         .container {
           display: flex;
           flex-direction: column;
-          
-          min-height: 100vh;
           padding: 0 0.5rem;
-          background-image: linear-gradient(to bottom right, #0B2D36, #004455);
-        }
-
-        .backHome {
-          position: absolute;
-          top: 20px;
-          left: 20px;
         }
 
         .main {
@@ -197,6 +185,13 @@ export default function Champion ( props ) {
         a {
           color: inherit;
           text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+          .grid {
+            width: 100%;
+            flex-direction: column;
+          }
         }
       `}</style>
     </div>

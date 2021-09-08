@@ -1,10 +1,11 @@
 import Head from 'next/head';
 
 import mongo_client from '../lib/mongodb';
+import BackHome from '../components/backHome';
 
 const mongodb_db = process.env.MONGODB_DB;
 
-export default function Home({ champions }) {
+export default function APIHome({ champions }) {
 
   // Cor para texto: #0070F3
 
@@ -15,10 +16,11 @@ export default function Home({ champions }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
+      <BackHome />
+
       <div className='main'>
         <div className='title_div'>
-          <h1 className="title">Welcome to TeamFight Tactics Info</h1>
-
+          <h1 className="title">Welcome to TeamFight Tactics Info API</h1>
 
           <img src='favicon.png'></img>
 
@@ -26,16 +28,7 @@ export default function Home({ champions }) {
           <span className="title">TeamFight Tactics Info</span> */}
         </div>
 
-        <h2 className='subtitle'>
-          About the API,&nbsp;
-          <a
-            href='/api-info'
-            style={{
-              color: '#00ccff',
-              textDecoration: 'underline'
-            }}
-          >click here</a>
-        </h2>
+        <p>Choose a champion and the browser will open a new tab with a JSON Object with his/her informations.</p>
 
         <div className="grid">
           {
@@ -51,7 +44,8 @@ export default function Home({ champions }) {
                   key={ index + champ_nick }
                 >
                   <a
-                    href={ `/champion/${ champ_nick }` }
+                    href={ `/api/champion/${ champ_nick }` }
+                    target="_blank"
                     className="card"
                   >
                     <img
@@ -194,14 +188,14 @@ export default function Home({ champions }) {
             width: 35px;
             height: 35px;
           }
-        }    
+        }
 
         @media (max-width: 600px) {
           a img {
             width: 60px;
             height: 60px;
           }
-        }        
+        }
       `}</style>
     </div>
   );
