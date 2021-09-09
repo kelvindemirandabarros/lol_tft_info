@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import mongo_client from '../lib/mongodb';
-import BackHome from '../components/backHome';
+import BackHome from '../components/BackHome';
 
 const mongodb_db = process.env.MONGODB_DB;
 
@@ -28,7 +28,7 @@ export default function APIHome({ champions }) {
           <span className="title">TeamFight Tactics Info</span> */}
         </div>
 
-        <p>Choose a champion and the browser will open a new tab with a JSON Object with his/her informations.</p>
+        <p className='subtitle'>Choose a champion and the browser will open a new tab with a JSON Object with his/her informations.</p>
 
         <div className="grid">
           {

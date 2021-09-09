@@ -5,7 +5,7 @@ import mongo_client from '../../lib/mongodb';
 import { all_champ_list, current_set } from '../../misc/champions_list';
 // import styles from '../../styles/champ_page.module.css';
 
-import BackHome from '../../components/backHome';
+import BackHome from '../../components/BackHome';
 
 const mongodb_db = process.env.MONGODB_DB;
 
