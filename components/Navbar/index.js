@@ -6,7 +6,7 @@ const Navbar = () => {
     <div>
       <nav className='navbar'>
         <div className='brand-title'>
-          <img src='favicon.png' />
+          <img src='/favicon.png' />
           TFT Info
         </div>
 

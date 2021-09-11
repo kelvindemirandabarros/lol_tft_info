@@ -21,7 +21,9 @@ export default function APIHome({ champions }) {
           <h1 className='title'>TeamFight Tactics Info - API</h1>
         </div>
 
-        <p className='subtitle'>Choose a champion and the browser will open a new tab with a JSON Object with his/her status.</p>
+        <p className='subtitle'>
+          Choose a champion and the browser will open a new tab with a JSON Object with his/her status, or access https://tft-info.vercel.app/api/champion/[champion], changing "[champion]" to champion name on the bottom of the page.
+        </p>
 
         <div className="grid">
           {
@@ -54,6 +56,67 @@ export default function APIHome({ champions }) {
             })
           }
         </div>
+        
+        <span>Full champions list:</span>
+        <code>[
+          aatrox,
+          akshan,
+          aphelios,
+          ashe,
+          brand,
+          diana,
+          draven,
+          fiddlesticks,
+          galio,
+          garen,
+          gragas,
+          gwen,
+          hecarim,
+          heimerdinger,
+          irelia,
+          ivern,
+          jax,
+          kalista,
+          karma,
+          kayle,
+          kennen,
+          khazix,
+          kled,
+          leesin,
+          leona,
+          lucian,
+          lulu,
+          lux,
+          missfortune,
+          nautilus,
+          nidalee,
+          nocturne,
+          nunu,
+          olaf,
+          poppy,
+          pyke,
+          rakan,
+          rell,
+          riven,
+          sejuani,
+          senna,
+          sett,
+          soraka,
+          syndra,
+          teemo,
+          thresh,
+          tristana,
+          udyr,
+          varus,
+          vayne,
+          velkoz,
+          viego,
+          vladimir,
+          volibear,
+          yasuo,
+          ziggs,
+          zyra ]
+        </code>
       </div>
 
       <style jsx>{`
