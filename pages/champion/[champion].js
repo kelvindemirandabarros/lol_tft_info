@@ -5,8 +5,6 @@ import mongo_client from '../../lib/mongodb';
 import { all_champ_list, current_set } from '../../misc/champions_list';
 // import styles from '../../styles/champ_page.module.css';
 
-import BackHome from '../../components/BackHome';
-
 const mongodb_db = process.env.MONGODB_DB;
 
 export default function Champion ( props ) {
@@ -24,10 +22,9 @@ export default function Champion ( props ) {
     <div className='container'>
       <Head>
         <title>TFT Info - { champion.name }</title>
+        
         <link rel="icon" href="/favicon.png" />
       </Head>
-
-      <BackHome />
 
       {
         ( errorMsg ) ?
@@ -146,8 +143,8 @@ export default function Champion ( props ) {
           flex: 1;
           flex-direction: column;
           align-items: center;
-
-          margin-top: 130px;
+          margin: auto;
+          margin-top: 50px;
           width: 50%;
         }
 
@@ -198,9 +195,10 @@ export default function Champion ( props ) {
   );
 }
 
-export async function getServerSideProps ( context,  ) {
-  const url = context.req.url;
-  const champ_nick = url.replace( '\/champion\/', '' );
+export async function getServerSideProps ( context  ) {
+  // const url = context.params.champion;
+  // const champ_nick = url.replace( '\/champion\/', '' );
+  const champ_nick = context.params.champion;
 
   // console.log( 'Champ nick:', champ_nick );
 

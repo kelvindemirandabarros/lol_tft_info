@@ -16,26 +16,12 @@ export default function Home({ champions }) {
       </Head>
 
       <div className='main'>
-        <div className='title_div'>
-          <h1 className="title">Welcome to TeamFight Tactics Info</h1>
-
-
-          <img src='favicon.png'></img>
-
-          {/* <span className="title">Welcome to</span>
-          <span className="title">TeamFight Tactics Info</span> */}
+        <div className='title-div'>
+          <h1 className="title">Welcome to</h1> 
+          <h1 className='title'>TeamFight Tactics Info</h1>
         </div>
 
-        <h2 className='subtitle'>
-          About the API,&nbsp;
-          <a
-            href='/api-info'
-            style={{
-              color: '#00ccff',
-              textDecoration: 'underline'
-            }}
-          >click here</a>
-        </h2>
+        <p className='subtitle'>Choose a champion to see his/her status:</p>
 
         <div className="grid">
           {
@@ -69,22 +55,10 @@ export default function Home({ champions }) {
         </div>
       </div>
 
-      {/* <style jsx>{`
-        .container {
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          background-image: linear-gradient(to bottom right, #0B2D36, #004455);
-        }
-      `}</style> */}
-
       <style jsx>{`
         .container {
           width: 100%;
           height: 100%;
-          padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -94,32 +68,25 @@ export default function Home({ champions }) {
         .main {
           width: 100%;
           height: 100%;
-          padding: 20px;
-        
           display: flex;
           flex: 1;
           flex-direction: column;
           align-items: center;
+          padding: 12px;
         }
         
-        .title_div {
+        .title-div {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
         }
         
-        .title_div img {
-          margin: 25px;
-          width: 50px;
-          height: 50px;
-        }
-        
-        a {
+        a.card {
           color: inherit;
           text-decoration: none;
         }
 
-        a img {
+        a.card img {
           width: 100%;
         }
         
@@ -166,7 +133,6 @@ export default function Home({ champions }) {
           margin: .2rem;
           padding: .5rem;
           text-decoration: none;
-        
           
           border: 1px solid #eaeaea;
           border-radius: 10px;
@@ -180,28 +146,20 @@ export default function Home({ champions }) {
           border-color: #0070f3;
         }
 
-        a span {
+        a.card span {
           font-size: 0.75rem;
         }
 
         @media (max-width: 600px) {
           h1.title {
-            font-size: 1.4rem;
+            font-size: 1.7rem;
           }
 
-          .title_div img {
-            margin: 10px;
-            width: 35px;
-            height: 35px;
-          }
-        }    
-
-        @media (max-width: 600px) {
-          a img {
+          a.card img {
             width: 60px;
             height: 60px;
           }
-        }        
+        }       
       `}</style>
     </div>
   );

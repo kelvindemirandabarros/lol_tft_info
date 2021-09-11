@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import mongo_client from '../lib/mongodb';
-import BackHome from '../components/BackHome';
 
 const mongodb_db = process.env.MONGODB_DB;
 
@@ -16,19 +15,13 @@ export default function APIHome({ champions }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <BackHome />
-
       <div className='main'>
-        <div className='title_div'>
-          <h1 className="title">Welcome to TeamFight Tactics Info API</h1>
-
-          <img src='favicon.png'></img>
-
-          {/* <span className="title">Welcome to</span>
-          <span className="title">TeamFight Tactics Info</span> */}
+        <div className='title-div'>
+          <h1 className="title">Welcome to</h1> 
+          <h1 className='title'>TeamFight Tactics Info - API</h1>
         </div>
 
-        <p className='subtitle'>Choose a champion and the browser will open a new tab with a JSON Object with his/her informations.</p>
+        <p className='subtitle'>Choose a champion and the browser will open a new tab with a JSON Object with his/her status.</p>
 
         <div className="grid">
           {
@@ -63,22 +56,10 @@ export default function APIHome({ champions }) {
         </div>
       </div>
 
-      {/* <style jsx>{`
-        .container {
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          background-image: linear-gradient(to bottom right, #0B2D36, #004455);
-        }
-      `}</style> */}
-
       <style jsx>{`
         .container {
           width: 100%;
           height: 100%;
-          padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -88,32 +69,31 @@ export default function APIHome({ champions }) {
         .main {
           width: 100%;
           height: 100%;
-          padding: 20px;
-        
           display: flex;
           flex: 1;
           flex-direction: column;
           align-items: center;
+          padding: 15px;
         }
         
-        .title_div {
+        .title-div {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
         }
         
-        .title_div img {
+        .title-div img {
           margin: 25px;
           width: 50px;
           height: 50px;
         }
         
-        a {
+        a.card {
           color: inherit;
           text-decoration: none;
         }
 
-        a img {
+        a.card img {
           width: 100%;
         }
         
@@ -160,8 +140,6 @@ export default function APIHome({ champions }) {
           margin: .2rem;
           padding: .5rem;
           text-decoration: none;
-        
-          
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
@@ -178,20 +156,12 @@ export default function APIHome({ champions }) {
           font-size: 0.75rem;
         }
 
-        @media (max-width: 600px) {
+        @media ( max-width: 600px ) {
           h1.title {
             font-size: 1.4rem;
           }
 
-          .title_div img {
-            margin: 10px;
-            width: 35px;
-            height: 35px;
-          }
-        }
-
-        @media (max-width: 600px) {
-          a img {
+          a.card img {
             width: 60px;
             height: 60px;
           }
