@@ -146,6 +146,7 @@ export default function Champion ( props ) {
           margin: auto;
           margin-top: 50px;
           width: 50%;
+          max-width: 700px;
         }
 
         .submain {
@@ -176,7 +177,7 @@ export default function Champion ( props ) {
         }
 
         .stats {
-          margin-top: 40px;
+          margin: 40px 0px;
         }
 
         a {

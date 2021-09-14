@@ -12,12 +12,6 @@ const Navbar = () => {
 
         <label htmlFor='btnControl'>
           <div className='toggle-button'>
-          
-            {/* <span className='bar'></span>
-
-            <span className='bar'></span>
-
-            <span className='bar'></span> */}
             <span>MENU</span>
 
             <FaBars
@@ -36,9 +30,9 @@ const Navbar = () => {
                   <a href='/api-info'>API Info</a>
                 </li>
 
-                {/* <li>
+                <li>
                   <a href='/about'>About</a>
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>
@@ -54,9 +48,9 @@ const Navbar = () => {
               <a href='/api-info'>API Info</a>
             </li>
 
-            {/* <li>
+            <li>
               <a href='/about'>About</a>
-            </li> */}
+            </li>
           </ul>
         </div>
       </nav>

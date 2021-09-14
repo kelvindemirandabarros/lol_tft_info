@@ -116,7 +116,7 @@ export default function Home({ champions }) {
         .grid {
           width: 100%;
           height: 100%;
-          margin-top: 25px;
+          margin: 30px 0px;
           display: grid;
           gap: 2px;
           grid-template-columns: repeat( auto-fill, minmax( 85px, 100px ) );

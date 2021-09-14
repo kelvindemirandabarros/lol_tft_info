@@ -21,9 +21,11 @@ export default function APIHome({ champions }) {
           <h1 className='title'>TeamFight Tactics Info - API</h1>
         </div>
 
-        <p className='subtitle'>
-          Choose a champion and the browser will open a new tab with a JSON Object with his/her status, or access https://tft-info.vercel.app/api/champion/[champion], changing "[champion]" to champion name on the bottom of the page.
-        </p>
+        <div>
+          <p className='subtitle'>
+            Choose a champion and the browser will open a new tab with a JSON Object with his/her status, or access - <span className='span-link'>https://tft-info.vercel.app/api/champion/[champion]</span> - changing "[champion]" to a champion name in the <a href='#champions-list' className='champ-list'>list on the bottom of this page</a>.
+          </p>
+        </div>
 
         <div className="grid">
           {
@@ -58,8 +60,9 @@ export default function APIHome({ champions }) {
         </div>
         
         <span>Full champions list:</span>
-        <code>[
-          aatrox,
+
+        <code id='champions-list' className='code'>
+          [ aatrox,
           akshan,
           aphelios,
           ashe,
@@ -178,15 +181,23 @@ export default function APIHome({ champions }) {
           color: white;
           text-align: center;
         }
+
+        /* .span-link {
+          text-decoration: underline;
+        } */
         
         .subtitle {
-          margin-top: 10px;
+          margin: 20px 15px 0px;
+        }
+
+        .champ-list {
+          color: #00ccff;
         }
         
         .grid {
           width: 100%;
           height: 100%;
-          margin-top: 25px;
+          margin: 30px 0px;
           display: grid;
           gap: 2px;
           grid-template-columns: repeat( auto-fill, minmax( 85px, 100px ) );
@@ -219,6 +230,11 @@ export default function APIHome({ champions }) {
           font-size: 0.75rem;
         }
 
+        .code {
+          margin: 0px 50px;
+          text-align: center;
+        }
+
         @media ( max-width: 600px ) {
           h1.title {
             font-size: 1.4rem;
@@ -227,6 +243,10 @@ export default function APIHome({ champions }) {
           a.card img {
             width: 60px;
             height: 60px;
+          }
+
+          .code {
+            margin: 0px 20px 30px;
           }
         }
       `}</style>
