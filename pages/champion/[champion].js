@@ -62,7 +62,7 @@ export default function Champion ( props ) {
 
                   <tr>
                     <td>Cost</td>
-                    <td>{ champion.cost } { ( champion.cost === 6 ) ? ( 'Health' ) : ( 'Gold' ) }</td>
+                    <td>{ champion.cost }</td>
                   </tr>
 
                   <tr>

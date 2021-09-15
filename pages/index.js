@@ -66,6 +66,7 @@ export default function Home({ champions }) {
           justify-content: center;
           align-items: center;
           max-width: 1200px;
+          margin: auto;
         }
         
         .main {
