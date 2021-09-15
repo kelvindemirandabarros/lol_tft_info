@@ -21,7 +21,9 @@ export default function Home({ champions }) {
           <h1 className='title'>TeamFight Tactics Info</h1>
         </div>
 
-        <p className='subtitle'>Choose a champion to see his/her status:</p>
+        <div className="div-sub">
+          <p className='subtitle'>Choose a champion to see his/her status:</p>
+        </div>
 
         <div className="grid">
           {
@@ -63,6 +65,7 @@ export default function Home({ champions }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          max-width: 1200px;
         }
         
         .main {
@@ -95,12 +98,6 @@ export default function Home({ champions }) {
           text-decoration: none;
         }
         
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-        
         .title {
           margin: 0;
           line-height: 1.15;
@@ -109,8 +106,12 @@ export default function Home({ champions }) {
           text-align: center;
         }
         
+        .div-sub {
+          margin: 20px 20px 0px;
+        }
+        
         .subtitle {
-          margin-top: 10px;
+          text-align: center;
         }
         
         .grid {

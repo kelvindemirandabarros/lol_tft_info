@@ -27,7 +27,7 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <a href='/api-info'>API Info</a>
+                  <a href='/api_info'>API Info</a>
                 </li>
 
                 <li>
@@ -45,7 +45,7 @@ const Navbar = () => {
             </li>
 
             <li>
-              <a href='/api-info'>API Info</a>
+              <a href='/api_info'>API Info</a>
             </li>
 
             <li>

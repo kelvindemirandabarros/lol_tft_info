@@ -21,9 +21,9 @@ export default function APIHome({ champions }) {
           <h1 className='title'>TeamFight Tactics Info - API</h1>
         </div>
 
-        <div>
+        <div className='div-sub'>
           <p className='subtitle'>
-            Choose a champion and the browser will open a new tab with a JSON Object with his/her status, or access - <span className='span-link'>https://tft-info.vercel.app/api/champion/[champion]</span> - changing "[champion]" to a champion name in the <a href='#champions-list' className='champ-list'>list on the bottom of this page</a>.
+            Choose a champion and the browser will open a new tab with a JSON Object with his/her status, or access - <span className='span-link'>tftinfo.vercel.app/api/champion/[champion]</span> - changing "[champion]" to a champion name in the <a href='#champions-list' className='champ-list'>list on the bottom of this page</a>.
           </p>
         </div>
 
@@ -130,6 +130,8 @@ export default function APIHome({ champions }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          max-width: 1200px;
+          margin: auto;
         }
         
         .main {
@@ -168,12 +170,6 @@ export default function APIHome({ champions }) {
           text-decoration: none;
         }
         
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-        
         .title {
           margin: 0;
           line-height: 1.15;
@@ -182,13 +178,17 @@ export default function APIHome({ champions }) {
           text-align: center;
         }
 
+        .div-sub {
+          margin: 20px 20px 0px;
+        }
+        
+        .subtitle {
+          text-align: center;
+        }
+
         /* .span-link {
           text-decoration: underline;
         } */
-        
-        .subtitle {
-          margin: 20px 15px 0px;
-        }
 
         .champ-list {
           color: #00ccff;
@@ -238,6 +238,10 @@ export default function APIHome({ champions }) {
         @media ( max-width: 600px ) {
           h1.title {
             font-size: 1.4rem;
+          }
+
+          .span-link {
+            font-size: 16px;
           }
 
           a.card img {
