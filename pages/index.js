@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import ContainerForGrid from '../components/ContainerForGrid';
 import mongo_client from '../lib/mongodb';
 
 const mongodb_db = process.env.MONGODB_DB;
@@ -9,7 +10,7 @@ export default function Home({ champions }) {
   // Cor para texto: #0070F3
 
   return (
-    <div className="container">
+    <ContainerForGrid>
       <Head>
         <title>TFT Info</title>
         <link rel="icon" href="/favicon.png" />
@@ -58,17 +59,6 @@ export default function Home({ champions }) {
       </div>
 
       <style jsx>{`
-        .container {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          max-width: 1200px;
-          margin: auto;
-        }
-        
         .main {
           width: 100%;
           height: 100%;
@@ -163,7 +153,7 @@ export default function Home({ champions }) {
           }
         }       
       `}</style>
-    </div>
+    </ContainerForGrid>
   );
 }
 
