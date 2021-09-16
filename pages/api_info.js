@@ -1,5 +1,3 @@
-import Head from 'next/head';
-
 import ContainerForGrid from '../components/ContainerForGrid';
 import mongo_client from '../lib/mongodb';
 
@@ -11,11 +9,6 @@ export default function APIHome({ champions }) {
 
   return (
     <ContainerForGrid>
-      <Head>
-        <title>TFT Info</title>
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-
       <div className='main'>
         <div className='title-div'>
           <h1 className="title">Welcome to</h1> 

@@ -22,8 +22,6 @@ export default function Champion ( props ) {
     <div className='container'>
       <Head>
         <title>TFT Info - { champion.name }</title>
-        
-        <link rel="icon" href="/favicon.png" />
       </Head>
 
       {

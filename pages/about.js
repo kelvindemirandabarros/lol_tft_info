@@ -4,7 +4,8 @@ const About = () => {
   return (
     <div className='about'>
       <p>You can see more about this project in my LinkedIn post:</p>
-      <a 
+
+      <a
         href='https://www.linkedin.com/in/'
         target='_blank'
       >LinkedIn</a>
@@ -22,6 +23,7 @@ const About = () => {
         }
 
         .about a {
+          margin-top: 20px;
           color: #00ccff;
         }
       `}</style>
