@@ -1,8 +1,10 @@
 import React from 'react';
 
-const ContainerForGrid = () => {
+const ContainerForGrid = ({ children }) => {
   return (
     <div className='container-for-grid'>
+      { children }
+
       <style jsx>{`
         .container-for-grid {
           width: 100%;
