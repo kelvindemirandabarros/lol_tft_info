@@ -6,7 +6,7 @@ const About = () => {
       <p>You can see more about this project in my LinkedIn post:</p>
 
       <a
-        href='https://www.linkedin.com/in/'
+        href='https://www.linkedin.com/posts/kelvin-de-miranda-barros_desenvolvimento-app-fullstack-activity-6844336131853586433-N12T'
         target='_blank'
       >LinkedIn</a>
 
