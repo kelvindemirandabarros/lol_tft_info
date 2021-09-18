@@ -31,10 +31,10 @@ export default function Home({ champions }) {
               return (
                 <div 
                   key={ index + champ_nick }
+                  className="card"
                 >
                   <a
                     href={ `/champion/${ champ_nick }` }
-                    className="card"
                   >
                     <img
                       alt={ `${ champ.name } (TFT)` }
@@ -42,7 +42,9 @@ export default function Home({ champions }) {
                       className='champion'
                     ></img>
 
-                    <span>{ champ.name }</span>
+                    <div className='span-div'>
+                      <span>{ champ.name }</span>
+                    </div>
                   </a>
                 </div>
               );
@@ -94,7 +96,7 @@ export default function Home({ champions }) {
           height: 100%;
           margin: 30px 0px;
           display: grid;
-          gap: 2px;
+          gap: 10px;
           grid-template-columns: repeat( auto-fill, minmax( 85px, 100px ) );
           grid-template-rows: max-content;
           align-items: center;
@@ -102,14 +104,8 @@ export default function Home({ champions }) {
         }
         
         .grid .card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
+          height: 100%;
           color: white;
-          margin: .2rem;
-          padding: .5rem;
-          text-decoration: none;
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
@@ -122,11 +118,37 @@ export default function Home({ champions }) {
           border-color: #0070f3;
         }
 
-        .grid .card img {
-          width: 100%;
+        .grid .card a {
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+          height: 90%;
+          align-items: center;
+          justify-content: space-between;
+          margin: 10px;
+          text-align: center;
+          text-decoration: none;
         }
 
-        .grid .card span {
+        .grid .card a img {
+          width: 75px;
+        }
+
+        .grid .card a .span-div {
+          display: flex;
+          height: 100%;
+          align-items: center;
+        }
+
+        .grid .card a .span-div span {
+          display: flex;
+          flex: auto;
+          /* height: 100%; */
+          /* align-items: center; */
+          justify-content: center;
+        }
+
+        .grid .card a span {
           font-size: 0.75rem;
         }
 
@@ -135,7 +157,11 @@ export default function Home({ champions }) {
             font-size: 1.7rem;
           }
 
-          .grid .card img {
+          .grid .card a {
+            height: 85%;
+          }
+
+          .grid .card a img {
             width: 60px;
             height: 60px;
           }
