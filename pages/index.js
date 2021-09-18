@@ -68,15 +68,6 @@ export default function Home({ champions }) {
           align-items: center;
         }
         
-        a.card {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        a.card img {
-          width: 100%;
-        }
-        
         .title a {
           color: #0070f3;
           text-decoration: none;
@@ -105,11 +96,12 @@ export default function Home({ champions }) {
           display: grid;
           gap: 2px;
           grid-template-columns: repeat( auto-fill, minmax( 85px, 100px ) );
+          grid-template-rows: max-content;
           align-items: center;
           justify-content: center;
         }
         
-        .card {
+        .grid .card {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -118,20 +110,23 @@ export default function Home({ champions }) {
           margin: .2rem;
           padding: .5rem;
           text-decoration: none;
-          
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
         }
         
-        .card:hover,
-        .card:focus,
-        .card:active {
+        .grid .card:hover,
+        .grid .card:focus,
+        .grid .card:active {
           color: #0070f3;
           border-color: #0070f3;
         }
 
-        a.card span {
+        .grid .card img {
+          width: 100%;
+        }
+
+        .grid .card span {
           font-size: 0.75rem;
         }
 
@@ -140,7 +135,7 @@ export default function Home({ champions }) {
             font-size: 1.7rem;
           }
 
-          a.card img {
+          .grid .card img {
             width: 60px;
             height: 60px;
           }
