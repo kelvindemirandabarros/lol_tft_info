@@ -40,7 +40,7 @@ export default function Home({ champions }) {
                       alt={ `${ champ.name } (TFT)` }
                       src={ icon_path }
                       className='champion'
-                    ></img>
+                    />
 
                     <div className='span-div'>
                       <span>{ champ.name }</span>
@@ -71,7 +71,7 @@ export default function Home({ champions }) {
         }
         
         .title a {
-          color: #0070f3;
+          color: var( --textcolor );
           text-decoration: none;
         }
         
@@ -114,8 +114,8 @@ export default function Home({ champions }) {
         .grid .card:hover,
         .grid .card:focus,
         .grid .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
+          color: var( --textcolor );
+          border-color: var( --textcolor );
         }
 
         .grid .card a {

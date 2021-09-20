@@ -1,3 +1,11 @@
+:root {
+  --linkcolor: #00CCFF;
+  --textcolor: #0070F3; /* Cor para texto: #0070F3 */
+  /* --bgdarkest: #131D20; /* background top level => #131D20 // Um pouco escuro. */
+  --backgrounddarkcolor: #0B2D36; /* background top level => #0B2D36 */
+  --backgroundlightkcolor: #004455; /* background bottom level => #004455 */
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -16,12 +24,15 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  /* background-image: linear-gradient(to bottom right, #0B2D36, #004455); */
-  background-image: linear-gradient( to left, #0B2D36, #004455 );
+  background-image: linear-gradient( 
+    to right,
+    var( --backgroundlightkcolor ),
+    var( --backgrounddarkcolor )
+  );
 }
 
 a {
-  color: #0070f3;
+  color: var( --textcolor );
   text-decoration: none;
 }
 
@@ -43,3 +54,22 @@ td, th {
 /* td {
   padding: 10px 20px;
 } */
+
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 200px 30px;
+}
+
+.page-not-found img,
+.page-not-found img + p {
+  margin-top: 10px;
+}
+
+.page-not-found a {
+  color: var( --linkcolor );
+}

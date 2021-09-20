@@ -60,18 +60,16 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background-color: #333;
+          background-color: #333333;
           color: white;
         }
 
         .brand-title {
           display: flex;
-          /* flex-direction: column; */
           font-size: 1.5rem;
           margin: 10px;
           margin-left: 15px;
           align-items: center;
-          /* justify-content: center; */
         }
 
         .brand-title img {

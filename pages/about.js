@@ -18,13 +18,12 @@ const About = () => {
           height: 100%;
           align-items: center;
           justify-content: center;
-          margin: 50px 0px;
-          padding: 0px 30px;
+          margin: 200px 30px 50px;
         }
 
         .about a {
           margin-top: 20px;
-          color: #00ccff;
+          color: var( --linkcolor );
         }
       `}</style>
     </div>

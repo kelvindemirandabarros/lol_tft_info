@@ -14,10 +14,6 @@ export default function Champion ( props ) {
   const icon_path = `/champ_icons/${ champ_nick }.png`;
   // console.log( 'Icon path:', icon_path );
 
-  // background top level => #131D20 // Um pouco escuro.
-  // background top level => #0B2D36
-  // background bottom level => #004455
-
   return (
     <div className='container'>
       <Head>
@@ -27,7 +23,7 @@ export default function Champion ( props ) {
       {
         ( errorMsg ) ?
         (
-          <div>{ errorMsg }</div>
+          <div className='main'>{ errorMsg }</div>
         )
         :
         (

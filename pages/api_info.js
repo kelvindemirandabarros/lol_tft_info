@@ -4,9 +4,6 @@ import mongo_client from '../lib/mongodb';
 const mongodb_db = process.env.MONGODB_DB;
 
 export default function APIHome({ champions }) {
-
-  // Cor para texto: #0070F3
-
   return (
     <ContainerForGrid>
       <div className='main'>
@@ -149,7 +146,7 @@ export default function APIHome({ champions }) {
         }
         
         .title a {
-          color: #0070f3;
+          color: var( --textcolor );
           text-decoration: none;
         }
         
@@ -174,7 +171,7 @@ export default function APIHome({ champions }) {
         } */
 
         .champ-list {
-          color: #00ccff;
+          color: var( --linkcolor );
         }
         
         .grid {
@@ -205,8 +202,8 @@ export default function APIHome({ champions }) {
         .card:hover,
         .card:focus,
         .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
+          color: var( --textcolor );
+          border-color: var( --textcolor );
         }
 
         a span {
