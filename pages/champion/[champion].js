@@ -7,10 +7,15 @@ import { all_champ_list, current_set } from '../../misc/champions_list';
 
 const mongodb_db = process.env.MONGODB_DB;
 
+const champ_models = [ 'aatrox', 'akshan', 'aphelios', 'ashe', 'brand', 'diana' ];
+
 export default function Champion ( props ) {
   const { error: errorMsg, champion } = props;
 
   const champ_nick = champion.name.toLowerCase().replace( /[ .']/, '' );
+
+  const model_path = `/images/models/${ champ_nick }.png`;
+
   const icon_path = `/champ_icons/${ champ_nick }.png`;
   // console.log( 'Icon path:', icon_path );
 
@@ -20,7 +25,7 @@ export default function Champion ( props ) {
         <title>TFT Info - { champion.name }</title>
       </Head>
 
-      {
+      { 
         ( errorMsg ) ?
         (
           <div className='main'>{ errorMsg }</div>
@@ -30,8 +35,25 @@ export default function Champion ( props ) {
           <div className='main'>
             <div className='submain'>
               <div className='img'>
-                <img alt={ `${ champion.name } (TFT)` } src={ icon_path }></img>
-              
+                { 
+                  ( champ_models.includes( champ_nick ) ) ?
+                  (
+                    <img
+                      src={ model_path }
+                      alt=''
+                      className='champ-model'
+                    />
+                  )
+                  :
+                  (
+                    <img
+                      src={ icon_path }
+                      alt={ `${ champion.name } (TFT)` }
+                      className='champ-icon'
+                    />
+                  )
+                }
+
                 <span>{ champion.name }</span>
               </div>
 
@@ -161,12 +183,17 @@ export default function Champion ( props ) {
           margin-top: 15px;
         }
 
-        img {
+        .champ-model {
+          height: 250px;
+          width: 200px;
+        }
+
+        .champ-icon {
           height: 100px;
           width: 100px;
         }
 
-        img + span {
+        .img img + span {
           font-size: 25px;
         }
 
@@ -174,12 +201,7 @@ export default function Champion ( props ) {
           margin: 40px 0px;
         }
 
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
+        @media ( max-width: 600px ) {
           .grid {
             width: 100%;
             flex-direction: column;
