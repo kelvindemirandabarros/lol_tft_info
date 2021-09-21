@@ -172,10 +172,6 @@ export default function APIHome({ champions }) {
           text-align: center;
         }
 
-        /* .span-link {
-          text-decoration: underline;
-        } */
-
         .champ-list {
           color: var( --linkcolor );
         }

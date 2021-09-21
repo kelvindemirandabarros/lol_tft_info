@@ -23,15 +23,15 @@ const Navbar = () => {
             <div className='dropdown-content'>
               <ul>
                 <li>
-                  <a href='/'>Home</a>
+                  <a href='/'>HOME</a>
                 </li>
 
                 <li>
-                  <a href='/api_info'>API Info</a>
+                  <a href='/api_info'>API INFO</a>
                 </li>
 
                 <li>
-                  <a href='/about'>About</a>
+                  <a href='/about'>ABOUT</a>
                 </li>
               </ul>
             </div>
@@ -41,15 +41,15 @@ const Navbar = () => {
         <div className='navbar-links'>
           <ul>
             <li>
-              <a href='/'>Home</a>
+              <a href='/'>HOME</a>
             </li>
 
             <li>
-              <a href='/api_info'>API Info</a>
+              <a href='/api_info'>API INFO</a>
             </li>
 
             <li>
-              <a href='/about'>About</a>
+              <a href='/about'>ABOUT</a>
             </li>
           </ul>
         </div>
