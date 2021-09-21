@@ -1,12 +1,10 @@
 import ContainerForGrid from '../components/ContainerForGrid';
+import ChampionsGrid from '../components/ChampionsGrid';
 import mongo_client from '../lib/mongodb';
 
 const mongodb_db = process.env.MONGODB_DB;
 
 export default function Home({ champions }) {
-
-  // Cor para texto: #0070F3
-
   return (
     <ContainerForGrid>
       <div className='main'>
@@ -19,7 +17,7 @@ export default function Home({ champions }) {
           <p className='subtitle'>Choose a champion to see his/her status:</p>
         </div>
 
-        <div className="grid">
+        {/* <div className="grid">
           {
             champions.map( ( champ, index ) => {
               const champ_nick = champ.name
@@ -50,7 +48,12 @@ export default function Home({ champions }) {
               );
             })
           }
-        </div>
+        </div> */}
+
+        <ChampionsGrid
+          champions={ champions }
+          main_link={ '' }
+        />
       </div>
 
       <style jsx>{`

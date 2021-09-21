@@ -1,4 +1,5 @@
 import ContainerForGrid from '../components/ContainerForGrid';
+import ChampionsGrid from '../components/ChampionsGrid';
 import mongo_client from '../lib/mongodb';
 
 const mongodb_db = process.env.MONGODB_DB;
@@ -18,7 +19,7 @@ export default function APIHome({ champions }) {
           </p>
         </div>
 
-        <div className="grid">
+        {/* <div className="grid">
           {
             champions.map( ( champ, index ) => {
               const champ_nick = champ.name
@@ -48,7 +49,12 @@ export default function APIHome({ champions }) {
               );
             })
           }
-        </div>
+        </div> */}
+
+        <ChampionsGrid
+          champions={ champions }
+          main_link={ '/api' }
+        />
         
         <span>Full champions list:</span>
 
